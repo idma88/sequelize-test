@@ -32,3 +32,35 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+
+/*
+  // Create
+  GlobalChat.create({
+    userId: 1,
+    message: "Hello everyone!"
+  }).then(obj => {
+    console.log(obj);
+  })
+
+  GlobalChat.create({
+    userId: 2,
+    message: "Hi! How are you?"
+  }).then(obj => {
+    console.log(obj);
+  })
+*/
+/*
+  // Update
+  GlobalChat.update({ deleted: true }, {
+    where: {
+      id: 2
+    }
+  }).then(() => {
+    console.log("Done");
+  });
+*/
+
+  // Get
+  GlobalChat.findAll().then(items => {
+    console.log("Items:", JSON.stringify(items, null, 4));
+  });
