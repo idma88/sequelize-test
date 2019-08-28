@@ -1,9 +1,9 @@
 var Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class GlobalChat extends Sequelize.Model {};
+  class ModelGlobalChat extends Sequelize.Model {};
 
-  GlobalChat.init({
+  ModelGlobalChat.init({
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -29,7 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: false
     }
-  }, { sequelize });
+  }, {
+    sequelize,
+    modelName: 'GlobalChat' 
+  });
 
-  return GlobalChat;
+  return ModelGlobalChat;
 }
