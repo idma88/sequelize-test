@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "sequelize": "5.17.0",
+    "sequelize-auto-import": "1.1.0",
     "sqlite3": "4.1.0"
   },
   "devDependencies": {

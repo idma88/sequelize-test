@@ -19,7 +19,7 @@ var sequelize = new Sequelize({
     freezeTableName: false
   }
 });
-const GlobalChat = sequelize.import(__dirname + "/models/global-chat")
+var models = require('sequelize-auto-import')(sequelize, __dirname + '/models');
 
 sequelize
   .authenticate()
@@ -35,14 +35,14 @@ sequelize
 
 /*
   // Create
-  GlobalChat.create({
+  models.globalChat.create({
     userId: 1,
     message: "Hello everyone!"
   }).then(obj => {
     console.log(obj);
   })
 
-  GlobalChat.create({
+  models.globalChat.create({
     userId: 2,
     message: "Hi! How are you?"
   }).then(obj => {
@@ -51,7 +51,7 @@ sequelize
 */
 /*
   // Update
-  GlobalChat.update({ deleted: true }, {
+  models.globalChat.update({ deleted: true }, {
     where: {
       id: 2
     }
@@ -61,6 +61,6 @@ sequelize
 */
 
   // Get
-  GlobalChat.findAll().then(items => {
+  models.globalChat.findAll().then(items => {
     console.log("Items:", JSON.stringify(items, null, 4));
   });
