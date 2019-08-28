@@ -61,6 +61,9 @@ sequelize
 */
 
   // Get
-  models.globalChat.findAll().then(items => {
+  models.globalChat.findAll({
+    where: { deleted: false }
+  })
+  .then(items => {
     console.log("Items:", JSON.stringify(items, null, 4));
   });
