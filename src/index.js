@@ -13,7 +13,7 @@ http
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: 'vtc-hub2.sqlite',
+  storage: 'vtc-hub.sqlite',
   define: {
     timestamps: false,
     freezeTableName: false
