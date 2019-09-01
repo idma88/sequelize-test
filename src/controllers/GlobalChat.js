@@ -1,9 +1,7 @@
-//var Sequelize = require('sequelize');
-
-module.exports = (model) => {
+module.exports = (models) => {
   const DEFAULT_LAST_MESSAGES_COUNT = 50;
 
-  var modelObj = model;
+  var modelObj = models.GlobalChat;
 
   class GlobalChat {
     static async New(userId, message) {

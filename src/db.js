@@ -5,10 +5,21 @@ var sequelize = new Sequelize({
   define: {
     timestamps: false,
     freezeTableName: false
-  }
+  },
+  logging: false
 });
 var models = require('sequelize-auto-import')(sequelize, __dirname + '/models');
+
+var controllers = require('require-all')({
+  dirname :  __dirname + '/controllers',
+  //filter  :  /(.+Controller)\.js$/,
+  map     : function (name, path) { return name.replace(/Controller/g, '') },
+  resolve : function (controller) { return controller(models); },
+});
 sequelize.sync();
+
+console.log('MODELS', models);
+// console.log('CONTROLLERS', controllers);
 
 // sequelize
 //   .authenticate()
@@ -24,5 +35,6 @@ sequelize.sync();
 
 module.exports = {
   sequelize,
-  models
+  models,
+  controllers
 }
