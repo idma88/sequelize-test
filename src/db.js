@@ -16,10 +16,10 @@ var controllers = require('require-all')({
   map     : function (name, path) { return name.replace(/Controller/g, '') },
   resolve : function (controller) { return controller(models); },
 });
-sequelize.sync();
+//sequelize.sync();
 
-console.log('MODELS', models);
-// console.log('CONTROLLERS', controllers);
+ console.log('MODELS', models);
+ console.log('CONTROLLERS', controllers);
 
 // sequelize
 //   .authenticate()

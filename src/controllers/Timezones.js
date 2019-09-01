@@ -1,4 +1,4 @@
-const USE_DB = false;
+const USE_DB = !false;
 const tz = require('../tz');
 
 module.exports = (models) => {
@@ -19,7 +19,7 @@ module.exports = (models) => {
 
     static async GetById(id) {
       if (USE_DB) {
-        return modelObj.findAll({
+        return modelObj.findOne({
           where: { id: id }
         });
       } else {

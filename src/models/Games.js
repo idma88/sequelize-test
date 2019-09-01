@@ -1,21 +1,21 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Timezones', {
+  return sequelize.define('Games', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    offset: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+    titleShort: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    description: {
+    titleFull: {
       type: DataTypes.STRING,
       allowNull: false
     }
   }, {
-    tableName: 'Timezones'
+    tableName: 'Games'
   });
 };

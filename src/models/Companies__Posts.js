@@ -1,21 +1,29 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Timezones', {
+  return sequelize.define('Companies__Posts', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    offset: {
+    companyId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Companies',
+        key: 'id'
+      }
+    },
+    post: {
+      type: DataTypes.STRING,
       allowNull: false
     },
-    description: {
-      type: DataTypes.STRING,
+    rank: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
-    tableName: 'Timezones'
+    tableName: 'Companies__Posts'
   });
 };
