@@ -31,7 +31,9 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'Timezones',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL'
     },
     daylight: {
       type: DataTypes.BOOLEAN,

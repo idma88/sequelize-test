@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamp: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: 'datetime(now, utc)'
+      defaultValue: 'CURRENT_TIMESTAMP'
     },
     comment: {
       type: DataTypes.STRING,
