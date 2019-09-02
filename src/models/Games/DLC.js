@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Games__DLC', {
+  return sequelize.define('DLC', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -13,9 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'Games',
         key: 'id'
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+      }
     },
     title: {
       type: DataTypes.STRING,
