@@ -20,7 +20,7 @@ if (0) {
     .catch(function (res) { console.warn(res); })
 }
 
-if (1) {
+if (0) {
   console.info("[ Games ]");
   controllers.Games.GetById(1)
     .then (function (res) { console.log(res); })

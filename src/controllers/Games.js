@@ -4,8 +4,6 @@ const Op = require('sequelize').Op;
 module.exports = (models) => {
   var modelObj = models.Games;
 
-  models.Games.hasOne(models.Games__DLC);
-
   class Games {
     static async GetById(id) {
       return modelObj.findOne({
