@@ -18,8 +18,8 @@ var controllers = require('require-all')({
 });
 //sequelize.sync();
 
- console.log('MODELS', models);
- console.log('CONTROLLERS', controllers);
+console.log('\x1b[41m%s\x1b[0m', 'MODELS', models);
+console.log('\x1b[41m%s\x1b[0m', 'CONTROLLERS', controllers);
 
 // sequelize
 //   .authenticate()
