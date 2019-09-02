@@ -2,13 +2,20 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Users__Company', {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
     userId: {
-      type: "",
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'Users',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     companyId: {
       type: DataTypes.INTEGER,
@@ -16,7 +23,9 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'Companies',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL'
     },
     companyPostId: {
       type: DataTypes.INTEGER,
@@ -25,6 +34,9 @@ module.exports = function(sequelize, DataTypes) {
         model: 'Companies__Posts',
         key: 'id'
       }
+      ,
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL'
     },
     adminPost: {
       type: DataTypes.STRING,

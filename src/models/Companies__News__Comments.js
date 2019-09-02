@@ -13,7 +13,9 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'Companies__News',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     authorId: {
       type: DataTypes.INTEGER,
@@ -21,7 +23,9 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'Users',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL'
     },
     timestamp: {
       type: DataTypes.DATE,

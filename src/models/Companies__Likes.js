@@ -2,13 +2,20 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Companies__Likes', {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true
+    },
     companyId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'Companies',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     authorId: {
       type: DataTypes.INTEGER,
@@ -16,7 +23,9 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'Users',
         key: 'id'
-      }
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL'
     },
     comment: {
       type: DataTypes.STRING,
