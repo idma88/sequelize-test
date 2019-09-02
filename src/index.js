@@ -20,10 +20,23 @@ if (0) {
     .catch(function (res) { console.warn(res); })
 }
 
-if (0) {
+if (1) {
   console.info("[ Games ]");
-  controllers.Games.GetById(1)
-    .then (function (res) { console.log(res); })
+  //controllers.Games.GetById(1)
+  controllers.Games.GetByTitle('ATS')
+    .then (function (res) {
+      for (var ind in res)
+      {
+        var game = res[ind];
+        console.log(game.id, game.titleShort, '/', game.titleFull);
+
+        for (var indDlc in game.dlc)
+        {
+          var dlc = game.dlc[indDlc];
+          console.log(dlc.id, dlc.title);
+        }
+      }
+    })
     .catch(function (res) { console.warn(res); })
 
   // controllers.Games.GetByTitle('ATS')
@@ -31,15 +44,7 @@ if (0) {
   //   .catch(function (res) { console.warn(res); })
 }
 
-if (0) {
-// return models.Users.Person.create({
-//   userId: userId,
-//   message: message
-// });
-}
-
 var qi = sequelize.getQueryInterface();
-
 //console.log('\x1b[41m%s\x1b[0m', 'QueryInterface', qi);
 
 if (0) {

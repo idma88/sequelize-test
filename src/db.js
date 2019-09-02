@@ -8,7 +8,13 @@ var sequelize = new Sequelize({
   },
   logging: false
 });
-var models = require('sequelize-auto-import')(sequelize, __dirname + '/models');
+var models = require('sequelize-auto-import')(
+  sequelize,
+  __dirname + '/models',
+  { recursive: true }
+);
+console.log('MODELS', models);
+sequelize.sync();
 
 var controllers = require('require-all')({
   dirname :  __dirname + '/controllers',
@@ -16,11 +22,7 @@ var controllers = require('require-all')({
   map     : function (name, path) { return name.replace(/Controller/g, '') },
   resolve : function (controller) { return controller(models); },
 });
-
-sequelize.sync();
-
-//console.log('\x1b[41m%s\x1b[0m', 'MODELS', models);
-//console.log('\x1b[41m%s\x1b[0m', 'CONTROLLERS', controllers);
+console.log('CONTROLLERS', controllers);
 
 // sequelize
 //   .authenticate()
