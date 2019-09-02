@@ -37,3 +37,28 @@ if (0) {
 //   message: message
 // });
 }
+
+var qi = sequelize.getQueryInterface();
+
+//console.log('\x1b[41m%s\x1b[0m', 'QueryInterface', qi);
+
+if (0) {
+  var tz = require(__dirname + '/tz.js');
+  qi.bulkInsert('Timezones', tz)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+}
+
+if (0) {
+  var games = require(__dirname + '/games.js');
+  qi.bulkInsert('Games', games)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+}
+
+if (0) {
+  var gamesDlc = require(__dirname + '/games__dlc.js');
+  qi.bulkInsert('Games__DLC', gamesDlc)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+}
