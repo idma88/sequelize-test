@@ -1,7 +1,7 @@
 module.exports = (models) => {
   const DEFAULT_LAST_MESSAGES_COUNT = 50;
 
-  var modelObj = models.GlobalChat;
+  var modelObj = models.Chat;
 
   class Chat {
     static async New(userId, message) {

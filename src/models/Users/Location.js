@@ -1,14 +1,12 @@
-/* jshint indent: 2 */
-
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users__Location', {
+  return sequelize.define('Location', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
     userId: {
-      type: "",
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'Users',
