@@ -1,5 +1,5 @@
 const USE_DB = !false;
-const tz = require('../tz');
+const tz = require('../datasets/tz');
 
 module.exports = (models) => {
   var modelObj = models.Timezones;

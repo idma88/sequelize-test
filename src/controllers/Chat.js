@@ -4,12 +4,12 @@ module.exports = (models) => {
   var modelObj = models.GlobalChat;
 
   class Chat {
-    static async New(userId, message) {
-      if (userId === undefined) return;
+    static async New(accountId, message) {
+      if (accountId === undefined) return;
       if ((message === undefined) || (message.length === 0)) return;
 
       return modelObj.create({
-        userId: userId,
+        accountId: accountId,
         message: message
       });
     };

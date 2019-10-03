@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 const Op = require('sequelize').Op;
 
 module.exports = (models) => {
-  var modelObj = models.Games.Games;
+  var modelObj = models.Repos.Games;
 
-  modelObj.hasMany(models.Games.DLC, {
+  modelObj.hasMany(models.Repos.DLC, {
     foreignKey: 'gameId',
     targetKey: 'id',
     as: 'dlc'
@@ -15,7 +15,7 @@ module.exports = (models) => {
       return modelObj.findAll({
         where: { id: id },
         include: [{
-          model: models.Games.DLC,
+          model: models.Repos.DLC,
           as: 'dlc'
         }]
       })
@@ -27,7 +27,7 @@ module.exports = (models) => {
           [Op.or]: [{titleShort: title}, {titleFull: title}]
         },
         include: [{
-          model: models.Games.DLC,
+          model: models.Repos.DLC,
           as: 'dlc'
         }]
       });

@@ -1,28 +1,28 @@
 module.exports = (models) => {
-  var modelObj = models.Users.Person;
+  var modelObj = models.Accounts.Person;
 
-  models.Users.Person.hasOne(
-    models.Users.Location,
+  models.Accounts.Person.hasOne(
+    models.Accounts.Location,
     {
       onDelete: 'CASCADE',
-      foreignKey: 'userId'
+      foreignKey: 'accountId'
     }
   );
-  models.Users.Person.hasOne(
-    models.Users.Social,
+  models.Accounts.Person.hasOne(
+    models.Accounts.Social,
     {
       onDelete: 'CASCADE',
-      foreignKey: 'userId'
+      foreignKey: 'accountId'
     }
   );
 
 //   class User {
-//     static async New(userId, message) {
-//       if (userId === undefined) return;
+//     static async New(accountId, message) {
+//       if (accountId === undefined) return;
 //       if ((message === undefined) || (message.length === 0)) return;
 
 //       return modelObj.create({
-//         userId: userId,
+//         accountId: accountId,
 //         message: message
 //       });
 //     };
