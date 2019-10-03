@@ -57,8 +57,8 @@ if (0) {
 
 if (0) {
   console.info("[ Games ]");
-  //controllers.Games.GetById(1)
-  controllers.Games.GetByTitle('ATS')
+  //controllers.Games._GetById(1)
+  controllers.Games._GetByTitle('ATS')
     .then (function (res) {
       for (var ind in res)
       {
@@ -74,7 +74,7 @@ if (0) {
     })
     .catch(function (res) { console.warn(res); })
 
-  // controllers.Games.GetByTitle('ATS')
+  // controllers.Games._GetByTitle('ATS')
   //   .then (function (res) { console.log(res); })
   //   .catch(function (res) { console.warn(res); })
 }

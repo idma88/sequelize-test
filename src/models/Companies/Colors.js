@@ -1,7 +1,5 @@
-/* jshint indent: 2 */
-
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Companies__Colors', {
+  return sequelize.define('Colors', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
