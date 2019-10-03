@@ -1,20 +1,42 @@
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'vtc-hub.sqlite',
+
+var sequelize_cfg = {
   define: {
     timestamps: false,
     freezeTableName: false
   },
-  logging: false
-});
+  logging: true
+}
+
+var sequelize;
+if (0) {
+  // SQLite
+  sequelize = new Sequelize(Object.assign(sequelize_cfg, {
+    dialect: 'sqlite',
+    storage: 'vtc-hub.sqlite',
+  }));
+} else {
+  // MySQL
+  sequelize = new Sequelize('vtc-hub', 'vtchub', 'p@SSvv0rd', 
+    Object.assign(sequelize_cfg, {
+      dialect: 'mysql',
+      define: Object.assign(sequelize_cfg.define, {
+        charset: 'utf8',
+        dialectOptions: {
+          collate: 'utf8_general_ci'
+        }
+      })
+    })
+  );
+}
+
 var models = require('sequelize-auto-import')(
   sequelize,
   __dirname + '/models',
   { recursive: true }
 );
 console.log('MODELS', models);
-sequelize.sync();
+if (1) sequelize.sync();
 
 var controllers = require('require-all')({
   dirname :  __dirname + '/controllers',

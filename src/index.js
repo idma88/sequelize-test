@@ -1,5 +1,40 @@
 var { sequelize, models, controllers } = require(__dirname + '/db');
 
+if (1) {
+  var qi = sequelize.getQueryInterface();
+  //console.log('\x1b[41m%s\x1b[0m', 'QueryInterface', qi);
+  
+  if (1) {
+    var tz = require(__dirname + '/datasets/tz.js');
+    qi.bulkInsert('Timezones', tz)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+  }
+  
+  if (1) {
+    var games = require(__dirname + '/datasets/games.js');
+    qi.bulkInsert('Repo__Games', games)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+  }
+  
+  if (1) {
+    var gamesDlc = require(__dirname + '/datasets/games__dlc.js');
+    qi.bulkInsert('Repo__DLC', gamesDlc)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+  }
+
+  if (1) {
+    var repoSocialNetworks = require(__dirname + '/datasets/social_networks.js');
+    qi.bulkInsert('Repo__SocialNetworks', repoSocialNetworks)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+  }
+}
+  
+
+
 if (0) {
   // console.info("[ GlobalChat ]");
   // // controllers.GlobalChat.New(1, "Hello!")
@@ -20,7 +55,7 @@ if (0) {
     .catch(function (res) { console.warn(res); })
 }
 
-if (1) {
+if (0) {
   console.info("[ Games ]");
   //controllers.Games.GetById(1)
   controllers.Games.GetByTitle('ATS')
@@ -42,28 +77,4 @@ if (1) {
   // controllers.Games.GetByTitle('ATS')
   //   .then (function (res) { console.log(res); })
   //   .catch(function (res) { console.warn(res); })
-}
-
-var qi = sequelize.getQueryInterface();
-//console.log('\x1b[41m%s\x1b[0m', 'QueryInterface', qi);
-
-if (0) {
-  var tz = require(__dirname + '/tz.js');
-  qi.bulkInsert('Timezones', tz)
-    .then (function (res) { console.log(res); })
-    .catch(function (res) { console.warn(res); })
-}
-
-if (0) {
-  var games = require(__dirname + '/games.js');
-  qi.bulkInsert('Games', games)
-    .then (function (res) { console.log(res); })
-    .catch(function (res) { console.warn(res); })
-}
-
-if (0) {
-  var gamesDlc = require(__dirname + '/games__dlc.js');
-  qi.bulkInsert('Games__DLC', gamesDlc)
-    .then (function (res) { console.log(res); })
-    .catch(function (res) { console.warn(res); })
 }
