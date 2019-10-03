@@ -17,38 +17,54 @@ module.exports = function(sequelize, DataTypes) {
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    steam: {
-      type: DataTypes.STRING,
-      allowNull: true
+    socialNetworkId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'REPO__SocialNetworks',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
-    discord: {
+    profileId: {
       type: DataTypes.STRING,
-      allowNull: true
-    },
-    vk: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    fb: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    ok: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    instagram: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    youtube: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    twitch: {
-      type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     }
+    /*
+      steam: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      discord: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      vk: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      fb: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      ok: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      instagram: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      youtube: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
+      twitch: {
+        type: DataTypes.STRING,
+        allowNull: true
+      }
+    */
   }, {
     tableName: 'Companies__Social'
   });

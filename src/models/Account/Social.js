@@ -1,37 +1,37 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users__Likes', {
+  return sequelize.define('Accounts__Social', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    userId: {
+    accountId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: 'Accounts',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    authorId: {
+    socialNetworkId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: 'Repo__SocialNetworks',
         key: 'id'
       },
       onUpdate: 'CASCADE',
-      onDelete: 'SET NULL'
+      onDelete: 'CASCADE'
     },
-    comment: {
+    profileId: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: false
     }
   }, {
-    tableName: 'Users__Likes'
+    tableName: 'Accounts__Social'
   });
 };

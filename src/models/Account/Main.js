@@ -1,38 +1,34 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users', {
+  return sequelize.define('Accounts', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    surname: {
+    nickname: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    midname: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    birthday: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    },
-    createdAt: {
+    registeredDate: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
-    deletedAt: {
+    activatedDate: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    deletedDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    activationToken: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
-    tableName: 'Users'
+    tableName: 'Accounts'
   });
 };

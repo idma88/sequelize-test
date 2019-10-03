@@ -1,25 +1,21 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('DLC', {
+  return sequelize.define('Repo__Games', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    gameId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Games',
-        key: 'id'
-      }
+    titleShort: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    title: {
+    titleFull: {
       type: DataTypes.STRING,
       allowNull: false
     }
   }, {
-    tableName: 'Games__DLC'
+    tableName: 'Repo__Games'
   });
 };

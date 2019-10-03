@@ -1,48 +1,37 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users__Company', {
+  return sequelize.define('Accounts__Likes', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    userId: {
+    accountId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: 'Accounts',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    companyId: {
+    authorId: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Companies',
+        model: 'Accounts',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL'
     },
-    companyPostId: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'Companies__Posts',
-        key: 'id'
-      }
-      ,
-      onUpdate: 'CASCADE',
-      onDelete: 'SET NULL'
-    },
-    adminPost: {
-      type: DataTypes.STRING,
+    comment: {
+      type: DataTypes.STRING(2000),
       allowNull: true
     }
   }, {
-    tableName: 'Users__Company'
+    tableName: 'Accounts__Likes'
   });
 };

@@ -1,33 +1,33 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users__Games', {
+  return sequelize.define('Accounts__DLC', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    userId: {
+    accountId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Users',
+        model: 'Accounts',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    gameId: {
+    dlcId: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Games',
+        model: 'Repo__DLC',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     }
   }, {
-    tableName: 'Users__Games'
+    tableName: 'Accounts__DLC'
   });
 };

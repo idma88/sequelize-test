@@ -1,33 +1,31 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Companies__Partners', {
+  return sequelize.define('Accounts__Auth', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    companyId: {
+    accountId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Companies',
+        model: 'Accounts',
         key: 'id'
       },
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    partnerId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Companies',
-        key: 'id'
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+    provider: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    authId: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
-    tableName: 'Companies__Partners'
+    tableName: 'Accounts__Auth'
   });
 };

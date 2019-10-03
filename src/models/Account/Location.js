@@ -1,17 +1,13 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users__Location', {
+  return sequelize.define('Accounts__Location', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true
-    },
-    userId: {
-      type: "",
-      allowNull: false,
+      primaryKey: true,
       references: {
-        model: 'Users',
+        model: 'Accounts',
         key: 'id'
       },
       onUpdate: 'CASCADE',
@@ -41,6 +37,6 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: '0'
     }
   }, {
-    tableName: 'Users__Location'
+    tableName: 'Accounts__Location'
   });
 };

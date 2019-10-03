@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'Games__DLC',
+        model: 'Repo__DLC',
         key: 'id'
       },
       onUpdate: 'CASCADE',

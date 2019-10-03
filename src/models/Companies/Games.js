@@ -18,10 +18,10 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: 'CASCADE'
     },
     gameId: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
-        model: 'Games',
+        model: 'Repo__Games',
         key: 'id'
       },
       onUpdate: 'CASCADE',
