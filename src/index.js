@@ -1,6 +1,6 @@
 var { sequelize, models, controllers } = require(__dirname + '/db');
 
-if (1) {
+if (0) {
   var qi = sequelize.getQueryInterface();
   //console.log('\x1b[41m%s\x1b[0m', 'QueryInterface', qi);
   
@@ -28,6 +28,13 @@ if (1) {
   if (1) {
     var repoSocialNetworks = require(__dirname + '/datasets/social_networks.js');
     qi.bulkInsert('Repo__SocialNetworks', repoSocialNetworks)
+    .then (function (res) { console.log(res); })
+    .catch(function (res) { console.warn(res); })
+  }
+
+  if (1) {
+    var repoSocialNetworks = require(__dirname + '/datasets/tmpservers.js');
+    qi.bulkInsert('Repo__TmpServers', repoSocialNetworks)
     .then (function (res) { console.log(res); })
     .catch(function (res) { console.warn(res); })
   }
